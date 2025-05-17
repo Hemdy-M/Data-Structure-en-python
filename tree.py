@@ -26,5 +26,13 @@ class BinaryTree:
             self.preorderCheck(root.right)
         return self.output
 
-root: BinaryTree = BinaryTree(0, left=BinaryTree(1), right=BinaryTree(2))
+# Left branch
+inner_left: BinaryTree = BinaryTree(1, right=BinaryTree(3))
+
+# Right branch
+inner_sub_right: BinaryTree = BinaryTree(4, left=BinaryTree(6))
+inner_right: BinaryTree = BinaryTree(2, left=inner_sub_right, right=BinaryTree(5))
+
+# Define the tree's root
+root: BinaryTree = BinaryTree(0, left=inner_left, right=inner_right)
 print(root.preorderCheck(root))
